@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reading Explorer Unit 6A Practice Workbook</title>
+  <style>
+    :root {
+      --ink: #23302d;
+      --muted: #63706b;
+      --paper: #fffdf7;
+      --bg: #eef5ef;
+      --card: #ffffff;
+      --green: #2f7d55;
+      --leaf: #d8ead7;
+      --gold: #f3c94b;
+      --line: #d9e2dc;
+      --bad: #b84747;
+      --good: #2f7d55;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #eef5ef 0%, #fffdf7 55%, #f7f1df 100%);
+      line-height: 1.55;
+    }
+
+    header {
+      padding: 28px 18px 18px;
+      background: #29483a;
+      color: white;
+    }
+
+    .wrap {
+      width: min(980px, 100%);
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .studio-logo {
+      display: inline-grid;
+      grid-template-columns: 46px auto;
+      gap: 10px;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 46px;
+      height: 54px;
+      display: block;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo-text {
+      display: grid;
+      gap: 1px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .logo-text strong {
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .logo-text span {
+      font-size: 12px;
+      color: #dfeee5;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      margin: 10px 0 0;
+      color: #e7f1e8;
+      font-size: 16px;
+    }
+
+    main { padding: 18px; }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(238, 245, 239, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 18px;
+    }
+
+    .toolbar .wrap {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .score {
+      font-weight: 700;
+      color: #244537;
+    }
+
+    .hub-link {
+      color: #244537;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .hub-link:hover { text-decoration: underline; }
+
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 11px 16px;
+      font-weight: 700;
+      color: white;
+      background: var(--green);
+      cursor: pointer;
+      min-height: 44px;
+    }
+
+    button.secondary {
+      color: var(--ink);
+      background: var(--gold);
+    }
+
+    section {
+      margin: 18px auto;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--card);
+      box-shadow: 0 10px 28px rgba(35, 48, 45, 0.08);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 17px;
+    }
+
+    .item {
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+    }
+
+    label {
+      display: block;
+      margin: 7px 0;
+    }
+
+    input[type="text"], select, textarea {
+      width: 100%;
+      max-width: 560px;
+      border: 1px solid #b9c8bf;
+      border-radius: 8px;
+      padding: 10px 11px;
+      font: inherit;
+      background: white;
+      color: var(--ink);
+    }
+
+    textarea {
+      max-width: 100%;
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .inline-input {
+      display: inline-block;
+      width: min(260px, 100%);
+      margin: 0 4px;
+      vertical-align: middle;
+    }
+
+    .word-bank {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 12px;
+      border: 1px solid #9fc7d4;
+      border-radius: 8px;
+      background: #f3fbfd;
+      color: #bd4937;
+      font-weight: 900;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid #d8e7ea;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(90px, 1fr));
+      gap: 10px;
+      align-items: end;
+      margin-top: 10px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .timeline .item {
+      min-width: 120px;
+      margin: 0;
+    }
+
+    .feedback {
+      display: none;
+      margin-top: 8px;
+      font-weight: 700;
+    }
+
+    .correct .feedback { display: block; color: var(--good); }
+    .incorrect .feedback { display: block; color: var(--bad); }
+    .correct { border-color: rgba(47, 125, 85, 0.65); }
+    .incorrect { border-color: rgba(184, 71, 71, 0.65); }
+
+    .answer {
+      display: none;
+      margin-top: 8px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: var(--leaf);
+      color: #214332;
+    }
+
+    .checked .answer { display: block; }
+
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      header { padding-top: 22px; }
+      main, .toolbar { padding-left: 12px; padding-right: 12px; }
+      section { padding: 14px; }
+      .two-col { grid-template-columns: 1fr; }
+      button { width: 100%; }
+      .toolbar .wrap { align-items: stretch; }
+      .studio-logo { grid-template-columns: 40px auto; }
+      .logo-mark {
+        width: 40px;
+        height: 47px;
+      }
+      .logo-text strong { font-size: 15px; }
+      .logo-text span { font-size: 11px; }
+    }
+
+    @media print {
+      body { background: white; }
+      .toolbar { display: none; }
+      section { box-shadow: none; break-inside: avoid; }
+      .answer { display: block; border: 1px solid var(--line); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="brand-row">
+        <div class="studio-logo" aria-label="Lexilink Ideation IELTS Studio">
+          <img class="logo-mark" alt="" src="lexilink-logo.png">
+          <div class="logo-text">
+            <strong>LEXILINK IDEATION</strong>
+            <span>IELTS Studio</span>
+          </div>
+        </div>
+      </div>
+      <h1>6A Practice: Reading Skills and Vocabulary</h1>
+      <p class="subtitle">Reading Explorer Unit 6A | Interactive Practice Workbook</p>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="wrap">
+      <div class="score" id="score">Score: --</div>
+      <div>
+        <a class="hub-link" href="index.html">Practice Hub</a>
+        <button type="button" onclick="checkAnswers()">Check Answers</button>
+        <button class="secondary" type="button" onclick="window.print()">Print</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap" id="workbook">
+    <section>
+      <h2>1. Reading Comprehension</h2>
+      <h3>Choose the Best Answer</h3>
+      <div class="item">
+        <p>1. What is the reading mainly about?</p>
+        <label><input type="radio" name="rc1" value="a"> the problems deforestation can cause for our planet</label>
+        <label><input type="radio" name="rc1" value="b"> how planting trees can help the environment</label>
+        <label><input type="radio" name="rc1" value="c" data-answer="c"> how a young person has made a big difference to the environment</label>
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        <p>2. What is the purpose of paragraph B?</p>
+        <label><input type="radio" name="rc2" value="a"> to give an example of the challenges Finkbeiner faced</label>
+        <label><input type="radio" name="rc2" value="b" data-answer="b"> to explain how Finkbeiner's project grew</label>
+        <label><input type="radio" name="rc2" value="c"> to describe Finkbeiner's personality</label>
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        <p>3. What is NOT true about Plant-for-the-Planet today?</p>
+        <label><input type="radio" name="rc3" value="a"> It teaches people about deforestation.</label>
+        <label><input type="radio" name="rc3" value="b"> It has many thousands of members.</label>
+        <label><input type="radio" name="rc3" value="c" data-answer="c"> Its aim is to plant one billion trees.</label>
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        <p>4. In paragraph C, what does the word <em>It</em> refer to?</p>
+        <label><input type="radio" name="rc4" value="a"> Plant-for-the-Planet</label>
+        <label><input type="radio" name="rc4" value="b" data-answer="b"> Germany's one millionth tree</label>
+        <label><input type="radio" name="rc4" value="c"> climate change</label>
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        <p>5. Which sentence is the best summary of Finkbeiner's quote in paragraph D?</p>
+        <label><input type="radio" name="rc5" value="a"> It will be easier to make changes when today's young people have more power.</label>
+        <label><input type="radio" name="rc5" value="b" data-answer="b"> Young people today need to push those in power to make changes.</label>
+        <label><input type="radio" name="rc5" value="c"> Today's world leaders are a good example for younger generations to follow.</label>
+        <div class="feedback"></div>
+      </div>
+
+      <h3>Short Answers</h3>
+      <div class="item">
+        Who helped Finkbeiner plant his first tree?
+        <input class="inline-input" type="text" data-answer="his classmates" data-alt="Finkbeiner and his classmates">
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        In which city did Finkbeiner speak to the United Nations?
+        <input class="inline-input" type="text" data-answer="New York">
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        How many members does Plant-for-the-Planet have?
+        <input class="inline-input" type="text" data-answer="around 70000" data-alt="around 70,000">
+        <div class="feedback"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. Reading Skill: Timeline of Events</h2>
+      <p class="note">Use the events from the reading. Choose the order from when Finkbeiner is 9 years old to when he is 13 years old.</p>
+      <div class="word-bank">
+        <span class="pill">a. speaks to the United Nations</span>
+        <span class="pill">b. challenges people to plant a million trees</span>
+        <span class="pill">c. other schools start to plant trees</span>
+        <span class="pill">d. is asked to give a class presentation</span>
+        <span class="pill">e. speaks to the European Parliament</span>
+        <span class="pill">f. plants a tree outside school</span>
+      </div>
+      <div class="timeline">
+        <div class="item">
+          <strong>1</strong>
+          <select data-answer="d">
+            <option value="">Choose</option>
+            <option value="a">a</option>
+            <option value="b">b</option>
+            <option value="c">c</option>
+            <option value="d">d</option>
+            <option value="e">e</option>
+            <option value="f">f</option>
+          </select>
+          <div class="feedback"></div>
+        </div>
+        <div class="item">
+          <strong>2</strong>
+          <select data-answer="b">
+            <option value="">Choose</option>
+            <option value="a">a</option>
+            <option value="b">b</option>
+            <option value="c">c</option>
+            <option value="d">d</option>
+            <option value="e">e</option>
+            <option value="f">f</option>
+          </select>
+          <div class="feedback"></div>
+        </div>
+        <div class="item">
+          <strong>3</strong>
+          <select data-answer="f">
+            <option value="">Choose</option>
+            <option value="a">a</option>
+            <option value="b">b</option>
+            <option value="c">c</option>
+            <option value="d">d</option>
+            <option value="e">e</option>
+            <option value="f">f</option>
+          </select>
+          <div class="feedback"></div>
+        </div>
+        <div class="item">
+          <strong>4</strong>
+          <select data-answer="c">
+            <option value="">Choose</option>
+            <option value="a">a</option>
+            <option value="b">b</option>
+            <option value="c">c</option>
+            <option value="d">d</option>
+            <option value="e">e</option>
+            <option value="f">f</option>
+          </select>
+          <div class="feedback"></div>
+        </div>
+        <div class="item">
+          <strong>5</strong>
+          <select data-answer="e">
+            <option value="">Choose</option>
+            <option value="a">a</option>
+            <option value="b">b</option>
+            <option value="c">c</option>
+            <option value="d">d</option>
+            <option value="e">e</option>
+            <option value="f">f</option>
+          </select>
+          <div class="feedback"></div>
+        </div>
+        <div class="item">
+          <strong>6</strong>
+          <select data-answer="a">
+            <option value="">Choose</option>
+            <option value="a">a</option>
+            <option value="b">b</option>
+            <option value="c">c</option>
+            <option value="d">d</option>
+            <option value="e">e</option>
+            <option value="f">f</option>
+          </select>
+          <div class="feedback"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. Vocabulary Practice</h2>
+      <h3>Complete the Information</h3>
+      <div class="word-bank">
+        <span class="pill">challenge</span>
+        <span class="pill">invitations</span>
+        <span class="pill">members</span>
+        <span class="pill">news</span>
+        <span class="pill">save</span>
+        <span class="pill">speeches</span>
+      </div>
+      <div class="item">
+        To help <input class="inline-input" type="text" data-answer="save"> it, Payeng has planted tens of thousands of trees.
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        He asked <input class="inline-input" type="text" data-answer="members"> of a local tribe if they could help with the island's problem.
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        <input class="inline-input" type="text" data-answer="News"> of Payeng's success spread.
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        He works to educate others and has given many <input class="inline-input" type="text" data-answer="speeches"> across the country.
+        <div class="feedback"></div>
+      </div>
+
+      <h3>Definitions</h3>
+      <div class="two-col">
+        <div class="item">
+          Your classmates are people you go to
+          <select data-answer="school">
+            <option value="">Choose</option>
+            <option>school</option>
+            <option>work</option>
+          </select>
+          with.
+          <div class="feedback"></div>
+        </div>
+        <div class="item">
+          When you give a presentation, you
+          <select data-answer="speak">
+            <option value="">Choose</option>
+            <option>speak</option>
+            <option>write</option>
+          </select>
+          to a group of people.
+          <div class="feedback"></div>
+        </div>
+        <div class="item">
+          If you challenge someone, you invite them to do a
+          <select data-answer="difficult">
+            <option value="">Choose</option>
+            <option>difficult</option>
+            <option>easy</option>
+          </select>
+          task.
+          <div class="feedback"></div>
+        </div>
+        <div class="item">
+          If someone gives you an invitation, they want you to
+          <select data-answer="join">
+            <option value="">Choose</option>
+            <option>join</option>
+            <option>organize</option>
+          </select>
+          an event.
+          <div class="feedback"></div>
+        </div>
+      </div>
+
+      <h3>Word Forms</h3>
+      <div class="two-col">
+        <div class="item">present -> <input class="inline-input" type="text" data-answer="presentation"><div class="feedback"></div></div>
+        <div class="item">transport -> <input class="inline-input" type="text" data-answer="transportation"><div class="feedback"></div></div>
+        <div class="item">educate -> <input class="inline-input" type="text" data-answer="education"><div class="feedback"></div></div>
+        <div class="item">prepare -> <input class="inline-input" type="text" data-answer="preparation"><div class="feedback"></div></div>
+        <div class="item">inform -> <input class="inline-input" type="text" data-answer="information"><div class="feedback"></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>4. Critical Thinking</h2>
+      <div class="item open">
+        <p>Imagine you and your classmates accepted Felix Finkbeiner's challenge to plant trees. Where is a good place to plant trees in your area? Why?</p>
+        <textarea></textarea>
+        <div class="answer">
+          写作提示：可以写 school, park, river, neighborhood, shade, clean air, protect the environment, help the community 等词语。说明地点后，要给出至少一个理由。
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function normalize(value) {
+      return String(value || "")
+        .trim()
+        .toLowerCase()
+        .replace(/,/g, "")
+        .replace(/[.,!?;:]+$/g, "")
+        .replace(/\s+/g, " ");
+    }
+
+    function acceptedAnswers(el) {
+      var answers = [el.dataset.answer || ""];
+      if (el.dataset.alt) answers = answers.concat(el.dataset.alt.split("|"));
+      return answers.map(normalize);
+    }
+
+    function markItem(item, ok, answerText) {
+      item.classList.remove("correct", "incorrect");
+      item.classList.add(ok ? "correct" : "incorrect");
+      var feedback = item.querySelector(".feedback");
+      if (feedback) {
+        feedback.textContent = ok ? "Correct" : "Try again" + (answerText ? " - Answer: " + answerText : "");
+      }
+    }
+
+    function checkAnswers() {
+      var total = 0;
+      var correct = 0;
+
+      document.querySelectorAll(".item").forEach(function(item) {
+        item.classList.add("checked");
+      });
+
+      document.querySelectorAll("input[type='text'][data-answer], select[data-answer]").forEach(function(el) {
+        total += 1;
+        var ok = acceptedAnswers(el).includes(normalize(el.value));
+        if (ok) correct += 1;
+        markItem(el.closest(".item"), ok, el.dataset.answer);
+      });
+
+      var radioGroups = {};
+      document.querySelectorAll("input[type='radio']").forEach(function(el) {
+        radioGroups[el.name] = true;
+      });
+
+      Object.keys(radioGroups).forEach(function(name) {
+        total += 1;
+        var selected = document.querySelector("input[name='" + name + "']:checked");
+        var correctRadio = document.querySelector("input[name='" + name + "'][data-answer]");
+        var ok = selected && correctRadio && selected.value === correctRadio.dataset.answer;
+        if (ok) correct += 1;
+        markItem(correctRadio.closest(".item"), ok, correctRadio.dataset.answer);
+      });
+
+      document.getElementById("score").textContent = "Score: " + correct + " / " + total;
+      document.body.classList.add("checked");
+    }
+  </script>
+</body>
+</html>
