@@ -23,8 +23,22 @@
     "description": "Reading comprehension, timeline sequencing, vocabulary completion, definitions, word forms, and critical thinking.",
     "workbook": "workbook-6a-practice.html",
     "notes": "",
-    "report": "",
+    "report": "parent_report_6a_practice.md",
     "source": "6a practice.pdf",
+    "status": "Ready"
+  },
+  {
+    "id": "re-unit-6b",
+    "series": "Reading Explorer",
+    "level": "",
+    "unit": "6B",
+    "theme": "Carnivorous Plants",
+    "title": "Fatal Attraction",
+    "description": "Venus flytraps, nectar, electrical signals, and other killer plants.",
+    "workbook": "workbook-6b.html",
+    "notes": "",
+    "report": "",
+    "source": "NG 6B.pdf",
     "status": "Ready"
   }
 ]

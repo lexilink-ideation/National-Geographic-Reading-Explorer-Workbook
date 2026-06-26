@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reading Explorer Unit 6B Workbook</title>
+  <style>
+    :root {
+      --ink: #23302d;
+      --muted: #63706b;
+      --paper: #fffdf7;
+      --bg: #eef5ef;
+      --card: #ffffff;
+      --green: #2f7d55;
+      --leaf: #d8ead7;
+      --gold: #f3c94b;
+      --line: #d9e2dc;
+      --bad: #b84747;
+      --good: #2f7d55;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #eef5ef 0%, #fffdf7 55%, #f7f1df 100%);
+      line-height: 1.55;
+    }
+
+    header {
+      padding: 28px 18px 18px;
+      background: #29483a;
+      color: white;
+    }
+
+    .wrap {
+      width: min(980px, 100%);
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .studio-logo {
+      display: inline-grid;
+      grid-template-columns: 46px auto;
+      gap: 10px;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 46px;
+      height: 54px;
+      display: block;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo-text {
+      display: grid;
+      gap: 1px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .logo-text strong {
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .logo-text span {
+      font-size: 12px;
+      color: #dfeee5;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      margin: 10px 0 0;
+      color: #e7f1e8;
+      font-size: 16px;
+    }
+
+    main { padding: 18px; }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(238, 245, 239, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 18px;
+    }
+
+    .toolbar .wrap {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .score {
+      font-weight: 700;
+      color: #244537;
+    }
+
+    .hub-link {
+      color: #244537;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .hub-link:hover { text-decoration: underline; }
+
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 11px 16px;
+      font-weight: 700;
+      color: white;
+      background: var(--green);
+      cursor: pointer;
+      min-height: 44px;
+    }
+
+    button.secondary {
+      color: var(--ink);
+      background: var(--gold);
+    }
+
+    section {
+      margin: 18px auto;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--card);
+      box-shadow: 0 10px 28px rgba(35, 48, 45, 0.08);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 17px;
+    }
+
+    .item {
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+    }
+
+    label {
+      display: block;
+      margin: 7px 0;
+    }
+
+    input[type="text"], select, textarea {
+      width: 100%;
+      max-width: 560px;
+      border: 1px solid #b9c8bf;
+      border-radius: 8px;
+      padding: 10px 11px;
+      font: inherit;
+      background: white;
+      color: var(--ink);
+    }
+
+    textarea {
+      max-width: 100%;
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .inline-input {
+      display: inline-block;
+      width: min(260px, 100%);
+      margin: 0 4px;
+      vertical-align: middle;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .word-bank {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 12px;
+      border: 1px solid #9fc7d4;
+      border-radius: 8px;
+      background: #f3fbfd;
+      color: #bd4937;
+      font-weight: 900;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      border-radius: 8px;
+      padding: 4px 9px;
+      background: white;
+      border: 1px solid #cde5ed;
+    }
+
+    .feedback {
+      display: none;
+      margin-top: 8px;
+      font-weight: 700;
+    }
+
+    .correct .feedback { display: block; color: var(--good); }
+    .incorrect .feedback { display: block; color: var(--bad); }
+    .correct { border-color: rgba(47, 125, 85, 0.65); }
+    .incorrect { border-color: rgba(184, 71, 71, 0.65); }
+
+    .answer {
+      display: none;
+      margin-top: 8px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: var(--leaf);
+      color: #214332;
+    }
+
+    .checked .answer { display: block; }
+
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      header { padding-top: 22px; }
+      main, .toolbar { padding-left: 12px; padding-right: 12px; }
+      section { padding: 14px; }
+      .two-col { grid-template-columns: 1fr; }
+      button { width: 100%; }
+      .toolbar .wrap { align-items: stretch; }
+      .studio-logo { grid-template-columns: 40px auto; }
+      .logo-mark {
+        width: 40px;
+        height: 47px;
+      }
+      .logo-text strong { font-size: 15px; }
+      .logo-text span { font-size: 11px; }
+    }
+
+    @media print {
+      body { background: white; }
+      .toolbar { display: none; }
+      section { box-shadow: none; break-inside: avoid; }
+      .answer { display: block; border: 1px solid var(--line); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="brand-row">
+        <div class="studio-logo" aria-label="Lexilink Ideation IELTS Studio">
+          <img class="logo-mark" alt="" src="lexilink-logo.png">
+          <div class="logo-text">
+            <strong>LEXILINK IDEATION</strong>
+            <span>IELTS Studio</span>
+          </div>
+        </div>
+      </div>
+      <h1>Fatal Attraction</h1>
+      <p class="subtitle">Reading Explorer Unit 6B | Interactive ESL Workbook</p>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="wrap">
+      <div class="score" id="score">Score: --</div>
+      <div>
+        <a class="hub-link" href="index.html">Practice Hub</a>
+        <button type="button" onclick="checkAnswers()">Check Answers</button>
+        <button class="secondary" type="button" onclick="window.print()">Print</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap" id="workbook">
+    <section>
+      <h2>1. Before You Read</h2>
+      <div class="item open">
+        <p>What does <strong>carnivorous</strong> mean? Write a short definition in English or Chinese.</p>
+        <input type="text">
+        <div class="answer">参考答案：Carnivorous means eating animals or insects. / 食肉的，以动物或昆虫为食的。</div>
+      </div>
+      <div class="item open">
+        <p>How do you think a Venus flytrap catches food? Write one prediction.</p>
+        <input type="text">
+        <div class="answer">参考答案：It closes its leaves quickly when an insect touches the hairs.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. Vocabulary Practice</h2>
+      <h3>Matching</h3>
+      <div class="two-col">
+        <div class="item">
+          <strong>1. nectar</strong>
+          <select data-answer="a sweet liquid that insects feed on">
+            <option value="">Choose</option>
+            <option>a sweet liquid that insects feed on</option>
+            <option>a moving creature</option>
+            <option>a long tubelike leaf</option>
+          </select>
+          <div class="feedback"></div>
+        </div>
+        <div class="item">
+          <strong>2. famous</strong>
+          <select data-answer="known by many people">
+            <option value="">Choose</option>
+            <option>known by many people</option>
+            <option>covered with gluey hairs</option>
+            <option>closed with no escape</option>
+          </select>
+          <div class="feedback"></div>
+        </div>
+        <div class="item">
+          <strong>3. electrical signal</strong>
+          <select data-answer="a message made by electricity">
+            <option value="">Choose</option>
+            <option>a message made by electricity</option>
+            <option>a sticky liquid</option>
+            <option>a forest leaf</option>
+          </select>
+          <div class="feedback"></div>
+        </div>
+        <div class="item">
+          <strong>4. survival</strong>
+          <select data-answer="staying alive">
+            <option value="">Choose</option>
+            <option>staying alive</option>
+            <option>landing on a leaf</option>
+            <option>drinking nectar</option>
+          </select>
+          <div class="feedback"></div>
+        </div>
+      </div>
+
+      <h3>Complete the Sentences</h3>
+      <div class="word-bank">
+        <span class="pill">along</span>
+        <span class="pill">difference</span>
+        <span class="pill">forest</span>
+        <span class="pill">leaf</span>
+        <span class="pill">lock</span>
+        <span class="pill">within</span>
+      </div>
+      <div class="item">
+        A hungry fly speeds through a <input class="inline-input" type="text" data-answer="forest">.
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        It lands on a green <input class="inline-input" type="text" data-answer="leaf">.
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        Long green teeth <input class="inline-input" type="text" data-answer="lock"> together around it.
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        Three small hairs grow <input class="inline-input" type="text" data-answer="along"> each leaf.
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        If an insect touches another hair <input class="inline-input" type="text" data-answer="within"> 20 seconds, the trap closes.
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        The plant can tell the <input class="inline-input" type="text" data-answer="difference"> between water and a moving creature.
+        <div class="feedback"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. Reading Comprehension</h2>
+      <h3>Choose the Best Answer</h3>
+      <div class="item">
+        <p>1. What is the reading mainly about?</p>
+        <label><input type="radio" name="rc1" value="a"> why forests are dangerous for flies</label>
+        <label><input type="radio" name="rc1" value="b" data-answer="b"> how Venus flytraps catch and eat insects</label>
+        <label><input type="radio" name="rc1" value="c"> why insects need nectar to survive</label>
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        <p>2. What first attracts the fly to the Venus flytrap?</p>
+        <label><input type="radio" name="rc2" value="a" data-answer="a"> the smell of nectar</label>
+        <label><input type="radio" name="rc2" value="b"> the plant's long green teeth</label>
+        <label><input type="radio" name="rc2" value="c"> an electrical signal</label>
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        <p>3. According to paragraph C, what makes the trap snap shut?</p>
+        <label><input type="radio" name="rc3" value="a"> a drop of water touches one hair</label>
+        <label><input type="radio" name="rc3" value="b"> an insect drinks all the nectar</label>
+        <label><input type="radio" name="rc3" value="c" data-answer="c"> an insect touches a second hair within 20 seconds</label>
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        <p>4. Why does the plant wait for a second touch?</p>
+        <label><input type="radio" name="rc4" value="a"> to make sure the insect is sleeping</label>
+        <label><input type="radio" name="rc4" value="b" data-answer="b"> to tell the difference between water and a moving creature</label>
+        <label><input type="radio" name="rc4" value="c"> to open its leaves again</label>
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        <p>5. What happens about ten days after an insect is trapped?</p>
+        <label><input type="radio" name="rc5" value="a"> the plant's leaves open again</label>
+        <label><input type="radio" name="rc5" value="b" data-answer="b"> almost nothing is left of the insect</label>
+        <label><input type="radio" name="rc5" value="c"> the insect drinks nectar again</label>
+        <div class="feedback"></div>
+      </div>
+
+      <h3>Short Answers</h3>
+      <div class="item">
+        How many small hairs are along each of the Venus flytrap's two leaves?
+        <input class="inline-input" type="text" data-answer="three" data-alt="3">
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        What does the Venus flytrap release after an insect is trapped?
+        <input class="inline-input" type="text" data-answer="a different liquid" data-alt="different liquid|liquid">
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        How many species of killer plants are there around the world?
+        <input class="inline-input" type="text" data-answer="around 700" data-alt="700|about 700">
+        <div class="feedback"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>4. Reading Skill: Sequence of Events</h2>
+      <p class="note">Put the steps in the correct order. Use the letters in the word bank.</p>
+      <div class="word-bank">
+        <span class="pill">a. The trap releases a liquid.</span>
+        <span class="pill">b. The fly smells nectar.</span>
+        <span class="pill">c. A second hair is touched within 20 seconds.</span>
+        <span class="pill">d. The fly lands on a leaf.</span>
+        <span class="pill">e. The trap snaps shut.</span>
+        <span class="pill">f. The plant is ready for its next meal.</span>
+      </div>
+      <div class="two-col">
+        <div class="item"><strong>1</strong> <select data-answer="b"><option value="">Choose</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option></select><div class="feedback"></div></div>
+        <div class="item"><strong>2</strong> <select data-answer="d"><option value="">Choose</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option></select><div class="feedback"></div></div>
+        <div class="item"><strong>3</strong> <select data-answer="c"><option value="">Choose</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option></select><div class="feedback"></div></div>
+        <div class="item"><strong>4</strong> <select data-answer="e"><option value="">Choose</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option></select><div class="feedback"></div></div>
+        <div class="item"><strong>5</strong> <select data-answer="a"><option value="">Choose</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option></select><div class="feedback"></div></div>
+        <div class="item"><strong>6</strong> <select data-answer="f"><option value="">Choose</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option></select><div class="feedback"></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>5. Grammar Practice</h2>
+      <h3>Present Simple for Facts</h3>
+      <div class="item">
+        The Venus flytrap <input class="inline-input" type="text" data-answer="smells"> nectar and catches insects. <span class="note">Use: smell</span>
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        The two sides of the leaf <input class="inline-input" type="text" data-answer="close"> against each other. <span class="note">Use: close</span>
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        This system <input class="inline-input" type="text" data-answer="allows"> the plant to identify a moving creature. <span class="note">Use: allow</span>
+        <div class="feedback"></div>
+      </div>
+
+      <h3>Prepositions</h3>
+      <div class="item">
+        A fly speeds <input class="inline-input" type="text" data-answer="through"> a forest.
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        The hairs are <input class="inline-input" type="text" data-answer="along"> each leaf.
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        The trap snaps shut <input class="inline-input" type="text" data-answer="within"> 20 seconds.
+        <div class="feedback"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>6. Translation</h2>
+      <h3>English to Chinese</h3>
+      <div class="item open">
+        <p>1. The Venus flytrap is perhaps the most famous killer plant.</p>
+        <input type="text">
+        <div class="answer">参考答案：捕蝇草也许是最著名的杀手植物。</div>
+      </div>
+      <div class="item open">
+        <p>2. This system allows the plant to tell the difference between a drop of water and a moving creature.</p>
+        <input type="text">
+        <div class="answer">参考答案：这个系统让植物能够分辨一滴水和一个移动的生物之间的区别。</div>
+      </div>
+
+      <h3>Chinese to English</h3>
+      <div class="item open">
+        <p>1. 一只饥饿的苍蝇闻到了花蜜。</p>
+        <input type="text">
+        <div class="answer">参考答案：A hungry fly smells nectar.</div>
+      </div>
+      <div class="item open">
+        <p>2. 十天后，几乎什么都没有剩下。</p>
+        <input type="text">
+        <div class="answer">参考答案：Ten days later, almost nothing is left.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>7. Killer Plants Review</h2>
+      <div class="item">
+        <p>1. Which plant has long, tubelike leaves?</p>
+        <label><input type="radio" name="kp1" value="a"> sundew</label>
+        <label><input type="radio" name="kp1" value="b" data-answer="b"> pitcher plant</label>
+        <label><input type="radio" name="kp1" value="c"> butterwort</label>
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        <p>2. Which plant catches insects with sticky liquid on long hairs?</p>
+        <label><input type="radio" name="kp2" value="a" data-answer="a"> sundew</label>
+        <label><input type="radio" name="kp2" value="b"> pitcher plant</label>
+        <label><input type="radio" name="kp2" value="c"> Venus flytrap</label>
+        <div class="feedback"></div>
+      </div>
+      <div class="item">
+        <p>3. What are a butterwort's leaves covered with?</p>
+        <input class="inline-input" type="text" data-answer="tiny gluey hairs" data-alt="gluey hairs|tiny, gluey hairs">
+        <div class="feedback"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>8. Writing Task</h2>
+      <div class="item open">
+        <p>Write 5-7 sentences explaining how a Venus flytrap catches and eats an insect. Use at least five unit words.</p>
+        <textarea></textarea>
+        <div class="answer">
+          写作提示：可以使用 nectar, leaf, hair, electrical signal, within 20 seconds, snap shut, release a liquid, survival, ready for its next meal 等语言。
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function normalize(value) {
+      return String(value || "")
+        .trim()
+        .toLowerCase()
+        .replace(/,/g, "")
+        .replace(/[.,!?;:]+$/g, "")
+        .replace(/\s+/g, " ");
+    }
+
+    function acceptedAnswers(el) {
+      var answers = [el.dataset.answer || ""];
+      if (el.dataset.alt) answers = answers.concat(el.dataset.alt.split("|"));
+      return answers.map(normalize);
+    }
+
+    function markItem(item, ok, answerText) {
+      item.classList.remove("correct", "incorrect");
+      item.classList.add(ok ? "correct" : "incorrect");
+      var feedback = item.querySelector(".feedback");
+      if (feedback) {
+        feedback.textContent = ok ? "Correct" : "Try again" + (answerText ? " - Answer: " + answerText : "");
+      }
+    }
+
+    function checkAnswers() {
+      var total = 0;
+      var correct = 0;
+
+      document.querySelectorAll(".item").forEach(function(item) {
+        item.classList.add("checked");
+      });
+
+      document.querySelectorAll("input[type='text'][data-answer], select[data-answer]").forEach(function(el) {
+        total += 1;
+        var ok = acceptedAnswers(el).includes(normalize(el.value));
+        if (ok) correct += 1;
+        markItem(el.closest(".item"), ok, el.dataset.answer);
+      });
+
+      var radioGroups = {};
+      document.querySelectorAll("input[type='radio']").forEach(function(el) {
+        radioGroups[el.name] = true;
+      });
+
+      Object.keys(radioGroups).forEach(function(name) {
+        total += 1;
+        var selected = document.querySelector("input[name='" + name + "']:checked");
+        var correctRadio = document.querySelector("input[name='" + name + "'][data-answer]");
+        var ok = selected && correctRadio && selected.value === correctRadio.dataset.answer;
+        if (ok) correct += 1;
+        markItem(correctRadio.closest(".item"), ok, correctRadio.dataset.answer);
+      });
+
+      document.getElementById("score").textContent = "Score: " + correct + " / " + total;
+      document.body.classList.add("checked");
+    }
+  </script>
+</body>
+</html>
